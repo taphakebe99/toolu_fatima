@@ -1,0 +1,50 @@
+class CartItemModel {
+  String productId;
+  String title;
+  double price;
+  String? image;
+  String unit;
+  String? instruction;
+  int quantity;
+
+  /// Constructor
+  CartItemModel({
+    required this.productId,
+    required this.quantity,
+    required this.unit,
+    this.instruction = '',
+    this.image,
+    this.price = 0.0,
+    this.title = '',
+  });
+
+  /// Empty Cart
+  static CartItemModel empty() =>
+      CartItemModel(productId: '', quantity: 0, unit: '');
+
+  /// Convert a CartItem to a JSON Map
+  Map<String, dynamic> toJson() {
+    return {
+      'productId': productId,
+      'title': title,
+      'price': price,
+      'image': image,
+      'unit': unit,
+      'quantity': quantity,
+      'instruction': instruction,
+    };
+  }
+
+  /// Create a CartItem from a JSON Map
+  factory CartItemModel.fromJson(Map<String, dynamic> json) {
+    return CartItemModel(
+      productId: json['productId'],
+      title: json['title'],
+      price: json['price']?.toDouble(),
+      unit: json['unit'],
+      image: json['image'],
+      quantity: json['quantity'],
+      instruction: json['instruction'],
+    );
+  }
+}
