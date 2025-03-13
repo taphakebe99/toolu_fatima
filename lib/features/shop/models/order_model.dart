@@ -26,7 +26,7 @@ class OrderModel {
     required this.shippingCost,
     required this.taxCost,
     required this.orderDate,
-    this.paymentMethod = 'Cash on Delivery',
+    this.paymentMethod = 'Cash',
     this.shippingAddress,
   });
 
@@ -37,7 +37,9 @@ class OrderModel {
       ? 'Livrée'
       : status == OrderStatus.cancelled
           ? 'Annulée'
-          : 'En cours';
+          : status == OrderStatus.pending
+              ? 'En attente'
+              : 'En cours';
 
   Map<String, dynamic> toJson() {
     return {
@@ -66,7 +68,7 @@ class OrderModel {
       userId: data.containsKey('userId') ? data['userId'] as String : '',
       status: data.containsKey('status')
           ? OrderStatus.values.firstWhere((e) => e.toString() == data['status'])
-          : OrderStatus.processing,
+          : OrderStatus.pending,
       // Default status
       totalAmount:
           data.containsKey('totalAmount') ? data['totalAmount'] as double : 0.0,

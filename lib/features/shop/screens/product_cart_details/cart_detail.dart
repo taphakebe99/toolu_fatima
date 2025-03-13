@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:toolu_fatima/features/shop/screens/product_details/widgets/cart_products_details.dart';
-import 'package:toolu_fatima/features/shop/screens/product_details/widgets/surrmary_row.dart';
+import 'package:toolu_fatima/features/shop/screens/product_cart_details/widgets/cart_products_details.dart';
+import 'package:toolu_fatima/features/shop/screens/product_cart_details/widgets/surrmary_row.dart';
 
 import '../../../../data/pdf/pdf_api.dart';
 import '../../../../data/pdf/pdf_invoice_api.dart';

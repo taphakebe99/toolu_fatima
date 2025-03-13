@@ -8,10 +8,9 @@ class MyProductPriceText extends StatelessWidget {
     this.currencySign = ' FCFA',
     this.maxLines = 1,
     this.lineThrough = false,
-    this.unity = 'pièce',
   });
 
-  final String price, currencySign, unity;
+  final String price, currencySign;
   final bool isLarge;
   final int maxLines;
   final bool lineThrough;
@@ -20,8 +19,8 @@ class MyProductPriceText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       currencySign.contains('\$')
-          ? '$currencySign$price/$unity'
-          : '$price$currencySign/$unity',
+          ? '$currencySign$price'
+          : '$price$currencySign',
       maxLines: maxLines,
       overflow: TextOverflow.ellipsis,
       style: isLarge

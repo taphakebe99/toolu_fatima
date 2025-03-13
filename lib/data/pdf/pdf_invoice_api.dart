@@ -122,7 +122,9 @@ class PdfInvoiceApi {
       return [
         item.title,
         DateFormat("dd/MM/yy").format(order.orderDate),
-        '${item.quantity} ${item.unit}',
+        '${item.quantity}${item.selectedVariation != null ? " (${item.selectedVariation!.entries.map((e) => "${e.key}: ${e.value}").join(", ")})" : ""}',
+
+        //'${item.quantity} ${item.unit}',
         '${item.price.toStringAsFixed(0)} FCFA',
         '$total FCFA',
       ];

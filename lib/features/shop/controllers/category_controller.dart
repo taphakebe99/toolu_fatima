@@ -51,10 +51,10 @@ class CategoryController extends GetxController {
   }
 
   /// Get Category or Sub-Category Products.
-  /// If you want to fetch all the products in this category SET [limit] to -1
+  /// If you want to fetch all the products_old in this category SET [limit] to -1
   Future<List<ProductModel>> getCategoryProducts(
       {required String categoryId, int limit = 4}) async {
-    // Fetch limited (4) products against each subCategory;
+    // Fetch limited (4) products_old against each subCategory;
     final products = await ProductRepository.instance
         .getProductsForCategory(categoryId: categoryId, limit: limit);
     return products;

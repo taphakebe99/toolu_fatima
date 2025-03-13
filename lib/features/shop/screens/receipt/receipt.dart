@@ -5,7 +5,6 @@ import 'package:toolu_fatima/features/shop/screens/receipt/widgets/receipt_item_
 import '../../../../utils/constants/colors.dart';
 import '../../../../utils/constants/sizes.dart';
 import '../../controllers/product/product_controller.dart';
-import '../../controllers/unity_controller.dart';
 import '../../models/order_model.dart';
 
 class ReceiptScreen extends StatelessWidget {
@@ -15,7 +14,6 @@ class ReceiptScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final unitController = Get.put(UnityController());
     final productController = Get.put(ProductController());
 
     return Container(
@@ -64,33 +62,9 @@ class ReceiptScreen extends StatelessWidget {
                       );
                     }
 
-                    final product = productSnapshot.data;
-
-                    return FutureBuilder(
-                      future: unitController
-                          .fetchUnitById(product!.unityId.toString()),
-                      builder: (context, unitSnapshot) {
-                        if (unitSnapshot.connectionState ==
-                            ConnectionState.waiting) {
-                          return const Center(
-                              child: CircularProgressIndicator());
-                        }
-                        if (unitSnapshot.hasError ||
-                            unitSnapshot.data == null) {
-                          return const Text(
-                            "Unité non disponible",
-                            style: TextStyle(color: Colors.red),
-                          );
-                        }
-
-                        final unit = unitSnapshot.data;
-
-                        return ReceiptItem(
-                          label:
-                              "${orderItem.quantity} ${unit?.unity} ${orderItem.title}",
-                          value: "${orderItem.price.toStringAsFixed(0)} FCFA",
-                        );
-                      },
+                    return ReceiptItem(
+                      label: "${orderItem.quantity} ${orderItem.title}",
+                      value: "${orderItem.price.toStringAsFixed(0)} FCFA",
                     );
                   },
                 );

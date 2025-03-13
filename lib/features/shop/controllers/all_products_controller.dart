@@ -15,7 +15,7 @@ class AllProductsController extends GetxController {
   Future<List<ProductModel>> fetchProductsByQuery(Query? query) async {
     try {
       if (query == null) return [];
-      // return DummyData.products;
+      // return DummyData.products_old;
       return await repository.fetchProductsByQuery(query);
     } catch (e) {
       MyLoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
@@ -24,7 +24,7 @@ class AllProductsController extends GetxController {
   }
 
   void assignProducts(List<ProductModel> products) {
-    // Assign products to the 'products' list
+    // Assign products_old to the 'products_old' list
     this.products.assignAll(products);
     sortProducts('Nom');
   }

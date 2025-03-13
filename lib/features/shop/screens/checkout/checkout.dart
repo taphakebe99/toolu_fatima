@@ -38,7 +38,7 @@ class CheckoutScreen extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               /// -- Items in Cart
-              const CartItems(showAddRemoveButtons: false),
+              const MyCartItems(showAddRemoveButtons: false),
               const SizedBox(height: MySizes.spaceBtwSections),
 
               /// -- Billing Section

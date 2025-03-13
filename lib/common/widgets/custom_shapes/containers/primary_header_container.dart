@@ -14,7 +14,7 @@ class MyPrimaryHeaderContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MyCurvedEdgeWidget(
+    return MyCurvedEdgesWidget(
         child: Container(
       color: MyColors.primary,
       child: Stack(

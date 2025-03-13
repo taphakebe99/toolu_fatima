@@ -1,13 +1,14 @@
-import 'package:flutter/material.dart';
+/*import 'package:flutter/material.dart';
 
 import '../../../../features/shop/models/cart_item_model.dart';
 import '../../../../utils/constants/colors.dart';
 import '../../../../utils/constants/sizes.dart';
 import '../../../../utils/helpers/helper_functions.dart';
 import '../../images/my_rounded_image.dart';
+import '../../texts/product_title_text.dart';
 
-class MyCartItem extends StatelessWidget {
-  const MyCartItem({
+class CartItem extends StatelessWidget {
+  const CartItem({
     super.key,
     required this.item,
   });
@@ -36,20 +37,27 @@ class MyCartItem extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              /// Brand and Title
+              /* TBrandTitleWithVerifiedIcon(title: item.brandName ?? ''),*/
+              Flexible(
+                  child: MyProductTitleText(title: item.title, maxLines: 1)),
+
               /// Attributes
               Text.rich(
                 TextSpan(
-                  children: (item.selectedVariation ?? {})
+                  children: ({})
                       .entries
                       .map(
                         (e) => TextSpan(
                           children: [
                             TextSpan(
-                                text: ' ${e.key} ',
-                                style: Theme.of(context).textTheme.bodySmall),
+                              text: ' ${e.key} ',
+                              style: Theme.of(context).textTheme.bodySmall,
+                            ),
                             TextSpan(
-                                text: '${e.value} ',
-                                style: Theme.of(context).textTheme.bodyLarge),
+                              text: '${e.value} ',
+                              style: Theme.of(context).textTheme.bodyLarge,
+                            ),
                           ],
                         ),
                       )
@@ -63,3 +71,5 @@ class MyCartItem extends StatelessWidget {
     );
   }
 }
+
+*/

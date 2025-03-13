@@ -6,7 +6,7 @@ import '../../../../../utils/constants/colors.dart';
 import '../../../../../utils/constants/enums.dart';
 import '../../../../../utils/constants/sizes.dart';
 import '../../../models/order_model.dart';
-import '../../product_details/cart_detail.dart';
+import '../../product_cart_details/cart_detail.dart';
 
 class OrderCard extends StatelessWidget {
   const OrderCard({
@@ -28,6 +28,8 @@ class OrderCard extends StatelessWidget {
       statusText = "Livrée";
     } else if (order.status == OrderStatus.cancelled) {
       statusText = "Annulée";
+    } else if (order.status == OrderStatus.pending) {
+      statusText = "En attente";
     } else {
       statusText = "En cours";
     }

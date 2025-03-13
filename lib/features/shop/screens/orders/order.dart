@@ -69,7 +69,9 @@ class OrderScreen extends StatelessWidget {
               final orders = snapshot.data!;
               // Filtrage par statut (adapté selon vos propriétés)
               final ordersEnCours = orders
-                  .where((order) => order.status == OrderStatus.processing)
+                  .where((order) =>
+                      order.status == OrderStatus.pending ||
+                      order.status == OrderStatus.processing)
                   .toList();
               final ordersLivrees = orders
                   .where((order) => order.status == OrderStatus.delivered)

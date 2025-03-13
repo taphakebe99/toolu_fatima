@@ -6,7 +6,6 @@ import '../../../../../utils/constants/sizes.dart';
 
 class CartCard extends StatelessWidget {
   final String title;
-  final String instruction;
   final String quantity;
   final String price;
   final String imagePath;
@@ -17,7 +16,6 @@ class CartCard extends StatelessWidget {
     required this.quantity,
     required this.price,
     required this.imagePath,
-    required this.instruction,
   });
 
   @override
@@ -33,7 +31,6 @@ class CartCard extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-
             MyRoundedImage(
                 imageUrl: imagePath,
                 isNetworkImage: true,
@@ -51,11 +48,6 @@ class CartCard extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                       fontSize: MySizes.md,
                     ),
-                  ),
-                  const SizedBox(height: MySizes.sm / 2),
-                  Text(
-                    instruction,
-                    style: TextStyle(color: Colors.grey, fontSize: 12),
                   ),
                   const SizedBox(height: MySizes.sm),
                   Text(
